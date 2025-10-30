@@ -1,6 +1,9 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import monitorRouter from './routes/monitor';
+import scrapeRouter from "./routes/scrape"
 import snippetsRouter from "./routes/snippets"
+import summarizeRouter from './routes/summarize';
 
 const app = new Hono();
 
@@ -24,7 +27,10 @@ app.get("/health", (c) => {
 });
 
 // Routes
-app.route("/api/snippets", snippetsRouter)
+app.route('/api/snippets', snippetsRouter);
+app.route('/api/scrape', scrapeRouter);
+app.route('/api/summarize', summarizeRouter);
+app.route('/api/monitor', monitorRouter);
 
 // Test route
 app.get("/api/test", (c) => {
