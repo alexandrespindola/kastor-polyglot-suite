@@ -15,7 +15,8 @@
   },
   "scripts": {
     "dev": "bun --hot index.ts",
-    "start": "bun index.ts"
+    "start": "bun index.ts",
+    "test:db": "bun db/test-connection.ts"
   }
 
 }

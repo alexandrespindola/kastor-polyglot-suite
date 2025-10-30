@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { MongoClient } from "mongodb";
+import snippetsRouter from "./routes/snippets"
 
 const app = new Hono();
 
@@ -22,6 +22,9 @@ app.get("/health", (c) => {
 		message: "Kastor Polyglot Suite API Gateway",
 	});
 });
+
+// Routes
+app.route("/api/snippets", snippetsRouter)
 
 // Test route
 app.get("/api/test", (c) => {
